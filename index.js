@@ -27,6 +27,15 @@ const createTimeInEvent = function(employeeRecord, datestamp) {
     return employeeRecord;
 }
 
-// const Thor = createEmployeeRecord(["Thor", "Odinsson", "Electrical Engineer", 45]);
-// const updatedThor = createTimeInEvent(Thor, "2014-02-28 1400");
-// console.log(updatedThor);
+const createTimeOutEvent = function(employeeRecord, datestamp) {
+    const timeOut = {
+        type: "TimeOut",
+        date: datestamp.slice(0, 10),
+        hour: parseInt(datestamp.slice(11))
+    };
+    employeeRecord.timeOutEvents.push(timeOut);
+    return employeeRecord;
+}
+const Thor = createEmployeeRecord(["Thor", "Odinsson", "Electrical Engineer", 45]);
+const updatedThor = createTimeOutEvent(Thor, "2014-02-28 1400");
+console.log(updatedThor);
